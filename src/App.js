@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useCallback, useState } from "react";
+import ChildA from "./Components/ChildA";
+import Usememohook from "./Components/Usememohook";
 function App() {
+  const [count, setCount] = useState(0)
+  const [remove, setRemove] = useState(10)
+  const Learning = useCallback(() => {
+    console.log("----->")
+  }, [remove])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Usememohook />
+      {/*  <ChildA Learning={Learning} remove={remove} /> 
+      <h1>useCallback Hook</h1>
+      <h3>count:{count}</h3>
+      <button onClick={() => setCount(count + 1)}>click me</button>
+      <button onClick={() => setRemove(remove - 1)}>Remove</button>*/}
     </div>
   );
 }
